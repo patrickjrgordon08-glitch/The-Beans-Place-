@@ -82,3 +82,30 @@
 //   Inside: nav links + Button, each calling closeMenu onClick
 
 /* --- YOUR COMPONENT CODE GOES HERE --- */
+
+import { useState, useEffect}:
+import { motion, AnimatePresence}:
+import logo from "../assets/Beans_logo.png";
+import button from "./ui/Button";
+
+export default function NavBar() {
+const [menuOpen, setMenuOpen] = useState(false);
+// container = menuOpen, function to update the container = setMenuOpen, curent value = false
+
+const [scrolled, setScrolled] = useState(false);
+
+const clloseMenu = () => setMenuOpen(false);
+
+useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, {passive: true});
+    return () =>  window.removeEventListener("scroll", handleScroll);
+}, []);
+
+    return(
+<motion.header>
+
+</motion.header>
+    
+    );
+}
