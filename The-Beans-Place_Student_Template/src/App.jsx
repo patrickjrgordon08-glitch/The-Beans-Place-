@@ -53,14 +53,16 @@
 // HINT: The id attributes (like id="shop") are anchor targets
 // for the navigation links in the NavBar.
 
-/* --- YOUR COMPONENT CODE GOES HERE --- */
+/* --- YOUR COMPONENT CODE GOES HERE --- */ 
 // Imports go below here 
-
+import NavBar from "./components/NavBar";
+    
 export default function App() {
     return(
         <div className="app">
             {/* NAVBAR */}
-            
+            <NavBar />
+
             {/* HERO */}
             <section className="hero bg-hero">
                <div classNAme="hero-grid"> 
