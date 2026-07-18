@@ -138,23 +138,23 @@ export default function NavBar() {
                     aria-expanded={menuOpen}
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="relative z-50 flex h-10 w-10 flex-col items-center 
-justify-center gap-1.5 md:hidden"
-                />
-
-                <span
-                    className={`block h-0.5 w-6 bg-black transition-all duration-300 
-${menuOpen ? "translate-y-2 rotate-45" : ""}`}
-                />
-
-                <span
-                    className={`block h-0.5 w-6 bg-black transition-all duration-300 
-${menuOpen ? "opacity-0" : ""}`}
-                />
-
-                <span
-                    className={`block h-0.5 w-6 bg-black transition-all duration-300 
-${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
-                />
+justify-center gap-1.5 md:hidden">
+                    
+                                    <span
+                                        className={`block h-0.5 w-6 bg-black transition-all duration-300 
+                    ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+                                    />
+                    
+                                    <span
+                                        className={`block h-0.5 w-6 bg-black transition-all duration-300 
+                    ${menuOpen ? "opacity-0" : ""}`}
+                                    />
+                    
+                                    <span
+                                        className={`block h-0.5 w-6 bg-black transition-all duration-300 
+                    ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+                                    />
+                </button>
             </div>
 
             {/* Mobile Menu */}

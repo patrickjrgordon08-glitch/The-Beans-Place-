@@ -30,7 +30,6 @@
 
 /* --- YOUR IMPORTS GO HERE --- */
 
-
 // STEP 2: Create and export the App component
 // Use: export default function App() { ... }
 //
@@ -53,52 +52,43 @@
 // HINT: The id attributes (like id="shop") are anchor targets
 // for the navigation links in the NavBar.
 
-/* --- YOUR COMPONENT CODE GOES HERE --- */ 
-// Imports go below here 
+/* --- YOUR COMPONENT CODE GOES HERE --- */
+// imports go below here
 import NavBar from "./components/NavBar";
-    
+import HeroSection from "./components/HeroSection";
+import RibbonTicker from "./components/RibbonTicker";
+
 export default function App() {
-    return(
+    return (
         <div className="app">
             {/* NAVBAR */}
             <NavBar />
 
             {/* HERO */}
             <section className="hero bg-hero">
-               <div classNAme="hero-grid"> 
+                <div className="hero-grid">
+                    <HeroSection />
+                </div>
+                </section>
+            <RibbonTicker />
 
-        </div>
-        </section>
+            {/* FEATURES / CAROUSEL */}
+            <section className="features bg-features" id="shop"></section>
 
+            {/* PRODUCT SHOWCASE */}
+            <section className="bg-cta"></section>
 
-        {/* FEATURES / CAROUSEL */}
-        <section className="features bg-features" id="shop">
+            {/* CTA */}
+            <section className="bg-cta"></section>
 
-        </section>
-        {/* PRODUCT SHOWCASE */}
-        <section className="bg-cta">
+            {/* ABOUT */}
+            <section className="bg-cta" id="about"></section>
 
-        </section>
+            {/* CONTACT */}
+            <section className="bg-cta" id="contact"></section>
 
-        {/* CTA */}
-        <section classNAme="bg-cta">
-
-        </section>
-
-        {/*ABOUT */}
-        <section className="bg-cta" id="about">
-
-        </section>
-
-        {/* CONTACT */}
-        <section className="Bg-cta" id="contact">
-
-        </section>
-
-        {/* FOOTER */}
-        <section className="bg-footer">
-            
-        </section>
+            {/* FOOTER */}
+            <section className="bg-footer"></section>
         </div>
     );
 }

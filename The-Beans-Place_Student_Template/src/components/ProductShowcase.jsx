@@ -24,6 +24,8 @@
 
 // STEP 1: Imports
 // From "framer-motion": import { motion }
+
+
 // Import UI components: ScrollReveal (+ StaggerContainer, StaggerItem),
 //   Badge, Button, Separator
 // Import 6 coffee bag images:
