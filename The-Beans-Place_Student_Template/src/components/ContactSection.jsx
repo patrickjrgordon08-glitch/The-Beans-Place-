@@ -424,7 +424,140 @@ function ContactFormInline() {
                         "Send Mesage"
                     )}
                 </Button>
+
+                {status === "error" && (
+                    <motion.span
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opsctiy: 1, x: 0 }}
+                        className="text-sm text-red-400">
+                        Something went wrong. Please try again.
+                    </motion.span>
+                )}
             </div>
         </motion.form>
+    );
+}
+
+export default function ContactSection() {
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const sectionRef = useRef(null);
+    useEffect(() => {
+        const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, []);
+
+    return (
+        <div className="contact-section-wrap" ref={sectionRef}>
+            {/*background Effects*/}
+            <div className="contact-bg-effects">
+                <div className="contact-bg-orb contact-bg-ord--1" />
+                <div className="contact-bg-orb contact-bg-orb--2" />
+                <div className="contact-bg-orb contact-bg-orb--3" />
+                <div className="contact-bg-grid" />
+            </div>
+
+            <div className="contact-inner">
+                {/* Header*/}
+                <ScrollReveal animation="fadeUp" className="contact-Header">
+                    <motion.div
+                        className="contact-pill"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}>
+                        <span>Connect & Collarorate</span>
+                    </motion.div>
+
+                    <h1 className="h1=stack" style={{ color: "var(--cream)" }}>
+                        GET IN
+                        <br />
+                        <span ClassName="muted" style={{ color: "var(--amber)" }}>
+                            TOUCH
+                        </span>
+                    </h1>
+
+                    <p className="lead--light" style={{ maxWidth: "52ch", margin: "10px auto 0" }}>
+                        Whether you're ordering beans, planning an event, or just want to say hello
+                        - we'd love to hear from you.
+                    </p>
+
+                    <separator className="mt-4 mb-2 mx-auto max-w-48" />
+                </ScrollReveal>
+
+                {/*Two Column: Form = Info Cards */}
+
+                <div className="contact-layout">
+                    {/*Left: Contact Form */}
+
+                    <div className="contact-form-col">
+                        <ContactFormInline />
+                    </div>
+
+                    {/* Right: Info Cards + Social*/}
+                    <div className="contact-info-col">
+                        <StaggerContainer className="contact-info-cards" staggerDelay={0.1}>
+                            {contactChannels.map((channel) => (
+                                <StaggerItem key={channel.name} animation="fadeUp">
+                                    <TiltCard
+                                        href={channel.href}
+                                        target={
+                                            channel.href.startsWith("http") ? "_blank" : undefined
+                                        }
+                                        rel={
+                                            channel.href.startsWith("http")
+                                                ? "noopener noreferrer"
+                                                : undefined
+                                        }
+                                        className="contact-card-link">
+                                        <div className="contact-card">
+                                            <div
+                                                className="contact-card-accent"
+                                                style={{ background: channel.accentColor }}
+                                            />
+                                            <div className="contact-card-content">
+                                                <div
+                                                    className={`contact-card-icon bg-gradient-to-br ${channel.gradient}`}>
+                                                    {channel.icon}
+                                                </div>
+
+                                                <div className="contact-card-text">
+                                                    <h3 className="contact-card-title">
+                                                        {channel.name}
+                                                    </h3>
+                                                    <p className="contact-card-detail">
+                                                        {channel.detail}
+                                                    </p>
+                                                </div>
+                                                <div className="contact-card-arrow">
+                                                    <svg
+                                                        className="w-4 h-4"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </TiltCard>
+                                </StaggerItem>
+                            ))}
+                        </StaggerContainer>
+                    </div>
+                </div>
+            </div>
+            <div
+                className="contact-mouse-glow"
+                style={{
+                    left: `${mousePos.x - 192}px`,
+                    top: `${mousePos.y - 192}px`
+                }}
+            />
+        </div>
     );
 }

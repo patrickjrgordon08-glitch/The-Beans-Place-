@@ -172,7 +172,7 @@ export default function AboutSection() {
     
             {/* value cards */}
     
-    <StaggerContainer staggereDelay={0.15} className="about-cards-grid">
+    <StaggerContainer staggerDelay={0.15} className="about-cards-grid">
         {values.map ( (v) => (
             
             <StaggerItem key={v.title} animation="fadeUp">
